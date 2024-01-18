@@ -1,19 +1,10 @@
 "use strict";
-// app.js
-
-// Make mobile navigation work
-
-//Click: btn-mobile-nav
-
-//Add: nav-open
-
-//ON: .header
-
-const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
+const btnNavEl = document.querySelector(".btn-mobile-nav");
 
 btnNavEl.addEventListener("click", () => {
   headerEl.classList.toggle("nav-open");
+  document.body.classList.toggle("nav-open");
 });
 
 /////////////////////////////////////////
@@ -40,6 +31,66 @@ const obs = new IntersectionObserver(
 );
 obs.observe(sectionHeroEl);
 
+window.addEventListener("load", function () {
+  // Hide the preloader after all resources are loaded
+  var preloader = document.getElementById("preloader");
+  // Add the dynamic LI elements and apply animations
+  const book = preloader.querySelector(".book");
+  console.log(book);
+  const ulPre = document.createElement("ul");
+  ulPre.style.margin = "0";
+  ulPre.style.padding = "0";
+  ulPre.style.listStyle = "none";
+  ulPre.style.position = "absolute";
+  ulPre.style.left = "50%";
+  ulPre.style.top = "0";
+
+  const numLIs = 19;
+
+  for (let i = 1; i < numLIs; i++) {
+    const li = document.createElement("li");
+    li.className = "dynamic-li";
+    li.style.animationName = `page-${i}`;
+    li.style.animationDuration = "6.8s"; // Adjust duration as needed
+    li.style.animationTimingFunction = "ease";
+    li.style.animationIterationCount = "infinite";
+    li.style.height = "4px";
+    li.style.borderRadius = "2px";
+    li.style.transformOrigin = "100% 2px";
+    li.style.width = "48px";
+    li.style.right = "0";
+    li.style.top = "-10px";
+    li.style.position = "absolute";
+    li.style.background = "#fff"; // Adjust color as needed
+    ulPre.appendChild(li);
+  }
+
+  // Add dynamic keyframes
+  for (let i = 1; i < numLIs; i++) {
+    const delay = i * 1.86;
+    const delayAfter = i * 1.74;
+
+    const keyframes = `@keyframes page-${i} {
+      ${4 + delay}% {
+        transform: rotateZ(0deg) translateX(-18px);
+      }
+      ${13 + delayAfter}%, ${54 + delay}% {
+        transform: rotateZ(180deg) translateX(-18px);
+      }
+      ${63 + delayAfter}% {
+        transform: rotateZ(0deg) translateX(-18px);
+      }
+    }`;
+
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+  }
+
+  book.appendChild(ulPre);
+  // Add this line to hide the preloader
+  preloader.style.display = "none";
+});
+// GSA
 // Function to apply parallax effect
 function parallaxIt(e, target, movement) {
   var $this = target.parentElement;
@@ -185,17 +236,8 @@ coursAllBtn.addEventListener("click", (e) => {
     handleResetClick(coursAllBtn);
 });
 
-const myText = document.querySelector(".hero");
-
-gsap.to([".hero", ".small-star"], {
-  opacity: 1,
-  delay: 0.5,
-  duration: 0.8,
-  ease: "ease-out", // or use a custom cubic bezier value
-});
-
 //! when you need to manipulate styles on a page
-//! always export the style in to a class and then use the class in js
+
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
@@ -261,26 +303,6 @@ courses.forEach((course) => {
   });
 });
 
-// ! Add more
-const showMoreCoursesLink = document.getElementById("all-courses-link");
-const hiddenCourses = document.querySelectorAll(".hidden-course");
-
-showMoreCoursesLink.addEventListener("click", function (event) {
-  event.preventDefault();
-  handleCategoryClick(courses, coursAllBtn);
-
-  // Toggle the hidden class for each additional course
-  hiddenCourses.forEach((course) => {
-    course.classList.toggle("hidden-course");
-  });
-
-  // You can also update the link text based on the current state
-  const isHidden = hiddenCourses[0].classList.contains("hidden-course");
-  showMoreCoursesLink.textContent = isHidden
-    ? "See all courses →"
-    : "Hide courses ↑";
-});
-
 // FLOATING ICONS
 
 const socialBtnEl = document.querySelector(".social-btn");
@@ -307,4 +329,83 @@ socialBtnEl.addEventListener("click", () => {
       e.style.bottom = "0px";
     });
   }
+});
+
+// add translator
+
+import translations from "./translations.js";
+
+const languageSelector = document.querySelector("select");
+languageSelector.addEventListener("change", (event) => {
+  setLanguage(event.target.value);
+  localStorage.setItem("lang", event.target.value);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const language = localStorage.getItem("lang") || "en"; // اذا لم تكن اللغة متوفرة استخدم الانجليزية
+  setLanguage(language);
+});
+
+const setLanguage = (language) => {
+  const elements = document.querySelectorAll("[data-i18n]");
+  elements.forEach((element) => {
+    const translationKey = element.getAttribute("data-i18n");
+    element.textContent = translations[language][translationKey];
+  });
+  document.dir = language === "ar" ? "rtl" : "ltr";
+  // Clear existing styles
+
+  if (language === "ar") {
+    modal.style.paddingRight = "0";
+    modal.style.paddingLeft = "6rem";
+  } else {
+    modal.style.paddingRight = "6rem";
+    modal.style.paddingLeft = "0";
+  }
+
+  console.log(language);
+};
+
+// gsap animation
+
+// insure the plugin and the gsap lib work together
+gsap.registerPlugin(ScrollTrigger);
+
+//Start Animated Hero section
+
+// selector targets all direct children of the .hero-text-box
+gsap.from(".hero-text-box > *", {
+  opacity: 0,
+  duration: 0.6,
+  ease: "power2.inOut",
+  stagger: 0.2,
+});
+
+gsap.from(".hero-left", {
+  opacity: 0,
+  duration: 0.8,
+  x: -500,
+  ease: "power2.inOut",
+});
+
+gsap.from(".hero-right", {
+  opacity: 0,
+  duration: 0.8,
+  x: 500,
+  ease: "power2.inOut",
+});
+
+//Start Animated courses on Scroll
+
+gsap.from(".fade-in-courses", {
+  opacity: 0,
+  y: 500, // Adjust the distance from bottom
+  ease: "power2.inOut",
+  scrollTrigger: {
+    trigger: ".courses-section",
+    start: "top center", // Trigger animation when the top of the element hits the top of the viewport
+    end: "start end",
+    markers: false,
+    scrub: true,
+  },
 });

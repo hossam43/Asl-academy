@@ -150,6 +150,9 @@ Insted 1rem = 1em = 16px
     z-index: 999;
   }
 
+  .nav-links-lang {
+    transform: translate(-50rem, 75rem);
+  }
   .icon-mobile-nav {
     display: block;
   }
@@ -184,7 +187,7 @@ Insted 1rem = 1em = 16px
     pointer-events: auto;
     visibility: visible;
     transform: translateX(0);
-    z-index: 999;
+    z-index: 99;
   }
 
   /* only when .nav-open exist */
@@ -232,7 +235,8 @@ Insted 1rem = 1em = 16px
   }
 
   .modal {
-    padding: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .modal-container {
     flex-direction: column;
@@ -263,7 +267,12 @@ Insted 1rem = 1em = 16px
 /* BELOW 600px phone */
 /* ************ */
 @media (max-width: 37.5em) {
-  .wave-right {
+  html {
+    overflow-x: hidden !important;
+  }
+
+  .wave-right,
+  .hero-section::after {
     display: none;
   }
   .grid {
@@ -305,10 +314,6 @@ Insted 1rem = 1em = 16px
     width: 120%;
   }
 
-  .hero-section::after {
-    top: 6%;
-    left: 2%;
-  }
   .hero-section::before {
     display: none;
   }
