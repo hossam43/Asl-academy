@@ -283,6 +283,16 @@ option {
   color: #9c36b5;
 }
 
+/* Reveal section */
+.element--hidden {
+  opacity: 0;
+  transform: translateY(5rem);
+}
+
+.section--reveal {
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
+
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {
   margin-right: 1.6rem !important;
@@ -483,4 +493,12 @@ strong {
   96% {
     transform: rotateZ(-90deg);
   }
+}
+
+/* magnatic */
+
+#magnetic-btn {
+  margin-bottom: 5rem;
+  margin-left: 5rem;
+  position: relative;
 }

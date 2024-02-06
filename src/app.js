@@ -1,4 +1,5 @@
-"use strict";
+import { ob } from "./intersectionObserver.js";
+("use strict");
 const headerEl = document.querySelector(".header");
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 
@@ -395,17 +396,21 @@ gsap.from(".hero-right", {
   ease: "power2.inOut",
 });
 
-//Start Animated courses on Scroll
+// Reveal section
+const allSection = document.querySelectorAll(".section--reveal");
+const optionsList = {
+  root: null,
+  threshold: 0.1,
+};
+ob(allSection, "element--hidden", optionsList);
 
-gsap.from(".fade-in-courses", {
-  opacity: 0,
-  y: 500, // Adjust the distance from bottom
-  ease: "power2.inOut",
-  scrollTrigger: {
-    trigger: ".courses-section",
-    start: "top center", // Trigger animation when the top of the element hits the top of the viewport
-    end: "start end",
-    markers: false,
-    scrub: true,
-  },
+// Magnatic effect
+
+const magneticButton = document.getElementById("magnetic-btn");
+
+magneticButton.addEventListener("mousemove", (e) => {
+  let x = e.offsetX,
+    y = e.offsetY;
+  let btnWidth = magneticButton.width;
+  let btnHeight = magneticButton.height;
 });

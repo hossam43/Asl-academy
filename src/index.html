@@ -7,8 +7,8 @@
       name="description"
       content="Unlock language fluency at ASL Academy. Personalized English courses tailored to your needs. Expert educators, innovative methods, and a supportive learning environment. Start your journey to language mastery today."
     />
-    <link rel="icon" href="./assets/icons/favicon.png" />
-    <link rel="apple-touch-icon" href="./assets/icons/favicon-192.png" />
+    <link rel="icon" href="../assets/icons/favicon.png" />
+    <link rel="apple-touch-icon" href="../assets/icons/favicon-192.png" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,13 +22,16 @@
     <!-- connect to GSAP and lenis -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+    <script defer src="app.js" type="module"></script>
+    <script defer src="auth.js" type="module"></script>
+
     <title>ASL &mdash; Academy</title>
   </head>
   <body>
     <header class="header">
       <a href="#">
         <img
-          src="./assets/images/logo.png"
+          src="../assets/images/logo.png"
           class="logo"
           alt="the asl academey website logo"
         />
@@ -102,16 +105,16 @@
                     >
                       <picture>
                         <source
-                          srcset="./assets/images/hero-img-person2.webp"
+                          srcset="../assets/images/hero-img-person2.webp"
                           type="image/webp"
                         />
                         <source
-                          srcset="./assets/images/hero-img-person2.png"
+                          srcset="../assets/images/hero-img-person2.png"
                           type="image/jpg"
                         />
                         <img
                           class="text"
-                          src="./assets/images/hero-img-person2.webp"
+                          src="../assets/images/hero-img-person2.webp"
                           alt="An image of a girl holding books and notes."
                           style="
                             color: rgb(255, 255, 255);
@@ -144,16 +147,16 @@
                     >
                       <picture>
                         <source
-                          srcset="./assets/images/hero-img-person1.webp"
+                          srcset="../assets/images/hero-img-person1.webp"
                           type="image/webp"
                         />
                         <source
-                          srcset="./assets/images/hero-img-person1.png"
+                          srcset="../assets/images/hero-img-person1.png"
                           type="image/jpg"
                         />
                         <img
                           class="text"
-                          src="./assets/images/hero-img-person1.png"
+                          src="../assets/images/hero-img-person1.png"
                           alt="An image of a man holding books and notes."
                           style="
                             color: rgb(255, 255, 255);
@@ -216,16 +219,16 @@
                     >
                       <picture>
                         <source
-                          srcset="./assets/images/hero-img-person1.webp"
+                          srcset="../assets/images/hero-img-person1.webp"
                           type="image/webp"
                         />
                         <source
-                          srcset="./assets/images/hero-img-person1.png"
+                          srcset="../assets/images/hero-img-person1.png"
                           type="image/jpg"
                         />
                         <img
                           class="text"
-                          src="./assets/images/hero-img-person1.png"
+                          src="../assets/images/hero-img-person1.png"
                           alt="An image of a man holding books and notes."
                           style="
                             color: rgb(255, 255, 255);
@@ -254,7 +257,7 @@
             <div class="partners-img-box">
               <img
                 alt="google chat icon"
-                src="./assets/images/googelchat.png"
+                src="../assets/images/googelchat.png"
                 class="partners-img"
               />
             </div>
@@ -262,7 +265,7 @@
             <div class="partners-img-box">
               <img
                 alt="classm icon in the partners section"
-                src="./assets/images/classm.png"
+                src="../assets/images/classm.png"
                 class="partners-img"
               />
             </div>
@@ -270,7 +273,7 @@
             <div class="partners-img-box">
               <img
                 alt="v-connct icon in the partners section"
-                src="./assets/images/v-connct.png"
+                src="../assets/images/v-connct.png"
                 class="partners-img"
               />
             </div>
@@ -278,7 +281,7 @@
             <div class="partners-img-box">
               <img
                 alt="classroom icon in the partners section"
-                src="./assets/images/partner2.png"
+                src="../assets/images/partner2.png"
                 class="partners-img"
               />
             </div>
@@ -286,7 +289,7 @@
             <div class="partners-img-box">
               <img
                 alt="jotform icon in the partners section"
-                src="./assets/images/jotform.png"
+                src="../assets/images/jotform.png"
                 class="partners-img"
               />
             </div>
@@ -330,23 +333,23 @@
 
         <!-- Courses Main Section -->
         <div
-          class="container grid grid--3--cols grid-center-v margin-bottom-md fade-in-courses"
+          class="container grid grid--3--cols grid-center-v margin-bottom-md section--reveal"
         >
           <!-- First Course Catyegory Beginners -->
           <div class="course c-1 show-modal" id="c-1-grammer">
             <div class="course-img-box">
               <picture>
                 <source
-                  srcset="./assets/images/course-cover-2.webp"
+                  srcset="../assets/images/course-cover-2.webp"
                   type="image/webp"
                 />
                 <source
-                  srcset="./assets/images/course-cover-2.jpg"
+                  srcset="../assets/images/course-cover-2.jpg"
                   type="image/jpg"
                 />
                 <img
                   alt="an image of a girl studying"
-                  src="./assets/images/course-cover-2.jpg"
+                  src="../assets/images/course-cover-2.jpg"
                   class="course-img"
                 />
               </picture>
@@ -387,7 +390,11 @@
           <div class="course c-2 show-modal">
             <!-- Image -->
             <div class="course-img-box">
-              <img alt="" src="./assets/images/course.jpg" class="course-img" />
+              <img
+                alt=""
+                src="../assets/images/course.jpg"
+                class="course-img"
+              />
             </div>
             <div class="course-content-box">
               <p class="course-title" data-i18n="courseT2">
@@ -426,7 +433,11 @@
           <!-- Second Course Catyegory Intermediate -->
           <div class="course c-2 show-modal">
             <div class="course-img-box">
-              <img alt="" src="./assets/images/course.jpg" class="course-img" />
+              <img
+                alt=""
+                src="../assets/images/course.jpg"
+                class="course-img"
+              />
             </div>
             <div class="course-content-box">
               <p class="course-title" data-i18n="courseT3">
@@ -466,7 +477,11 @@
           <!-- Third Course Catyegory Intermediate -->
           <div class="course c-2 show-modal">
             <div class="course-img-box">
-              <img alt="" src="./assets/images/course.jpg" class="course-img" />
+              <img
+                alt=""
+                src="../assets/images/course.jpg"
+                class="course-img"
+              />
             </div>
             <div class="course-content-box">
               <p class="course-title" data-i18n="courseT4">Express</p>
@@ -506,16 +521,16 @@
             <div class="course-img-box">
               <picture>
                 <source
-                  srcset="./assets/images/course-cover-3.webp"
+                  srcset="../assets/images/course-cover-3.webp"
                   type="image/webp"
                 />
                 <source
-                  srcset="./assets/images/course-cover-3.jpg"
+                  srcset="../assets/images/course-cover-3.jpg"
                   type="image/jpg"
                 />
                 <img
                   alt="an image of a girl studying"
-                  src="./assets/images/course-cover-3.jpg"
+                  src="../assets/images/course-cover-3.jpg"
                   class="course-img"
                 />
               </picture>
@@ -657,7 +672,7 @@
         </div>
 
         <div
-          class="container grid grid--3--cols margin-bottom-md membership-ani"
+          class="container grid grid--3--cols margin-bottom-md section--reveal"
         >
           <div class="pricing-plan pricing-plan--starter">
             <header class="plan-header">
@@ -669,7 +684,7 @@
               </div>
               <div class="header-icon-box">
                 <img
-                  src="./assets/images/basic.png"
+                  src="../assets/images/basic.png"
                   class="membership-icon"
                   alt="membership icon"
                 />
@@ -755,7 +770,7 @@
               </div>
               <div class="header-icon-box">
                 <img
-                  src="./assets/images/business.png"
+                  src="../assets/images/business.png"
                   class="membership-icon"
                   alt="membership icon"
                 />
@@ -841,7 +856,7 @@
               </div>
               <div class="header-icon-box">
                 <img
-                  src="./assets/images/professional.png"
+                  src="../assets/images/professional.png"
                   class="membership-icon"
                   alt="membership icon"
                 />
@@ -923,7 +938,7 @@
         <div class="logo-col">
           <a href="#" class="footer-logo">
             <img
-              src="./assets/images/logo.png"
+              src="../assets/images/logo.png"
               class="footer-logo"
               alt="website-logo"
             />
@@ -1093,7 +1108,7 @@
       <div class="square"></div>
       <div class="square2"></div>
     </section>
-
+    <button id="magnetic-btn" class="btn">Magnetic Hover</button>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -1102,6 +1117,5 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script src="app.js" type="module"></script>
   </body>
 </html>
