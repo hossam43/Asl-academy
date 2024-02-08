@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css" />
+    <script type="module" src="../dist/bundle.js"></script>
+  </head>
+  <body>
+    <div class="contact-section">
+      <div class="register-container">
+        <img
+          src="path/to/your/academy-logo.png"
+          alt="Academy Logo"
+          class="academy-logo"
+        />
+        <h2 class="register-titel">Login</h2>
+        <div class="cta login-form">
+          <div class="cta-text-box">
+            <form id="loginForm" class="form">
+              <div class="form-control">
+                <label for="email" class="form-title">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="email-input"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label for="password" class="form-title">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="password-input"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="register btn">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="auth.js" type="module"></script>
+  </body>
+</html>
