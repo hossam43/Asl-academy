@@ -3,15 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
     <div class="container">
       <div class="register-container">
-        <h1>Login, Now!</h1>
-        <p>we are happy to have you back</p>
-        <form class="login">
+        <h1>Sign Up, Now!</h1>
+        <p>we are happy to have you with us</p>
+        <form class="register">
+          <label for="full_name">Full Name</label>
+          <input
+            type="text"
+            id="full_name"
+            name="full_name"
+            placeholder="Enter your Full Name"
+          />
+
           <label for="email">Email</label>
           <input
             type="email"
@@ -27,12 +35,9 @@
             placeholder="Enter your password"
             required
           />
-          <button type="submit" class="btn-login">Login</button>
+          <button type="submit" class="btn-signin">Sign in</button>
         </form>
-        <p>
-          don't have an account?
-          <a href="register.html">Sing up now</a>
-        </p>
+        <a href="login.html">Login</a>
       </div>
     </div>
     <script type="module" src="../dist/bundle.js"></script>
